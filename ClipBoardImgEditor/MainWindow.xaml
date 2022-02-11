@@ -1,0 +1,57 @@
+﻿<Window x:Class="ClipBoardImgEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClipBoardImgEditor"
+        mc:Ignorable="d"
+        Title="ClipBoardImgEditor" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding CopyFromCBC}" Gesture="Ctrl+V"/>
+        <KeyBinding Command="{Binding CopyToCBC}" Gesture="Ctrl+C"/>
+        <KeyBinding Command="{Binding RemoveLastDrawDataC}" Gesture="Ctrl+Z" Key="Z"/>
+    </Window.InputBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20px" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <Menu >
+                <MenuItem Header="ｸﾘｯﾌﾟﾎﾞｰﾄﾞ">
+                    <MenuItem x:Name="CopyFromCBMenuItem" Command="{Binding CopyFromCBC}" Header="ｸﾘｯﾌﾟﾎﾞｰﾄﾞからｺﾋﾟｰ" Click="CopyFromCBMenuItem_Click" InputGestureText="Ctrl+V"  />
+                    <MenuItem x:Name="CopyToCBMenuItem" Command="{Binding CopyToCBC}" Header="ｸﾘｯﾌﾟﾎﾞｰﾄﾞへ貼付" Click="CopyToCBMenuItem_Click" InputGestureText="Ctrl+C" />
+                </MenuItem>
+            </Menu>
+
+        </Menu>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150px" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="24px" />
+                        <RowDefinition Height="24px" />
+                        <RowDefinition Height="24px" />
+                        <RowDefinition Height="24px" />
+                    </Grid.RowDefinitions>
+                    <Button x:Name="DrawSquareBtn" Content="四角を描画" Width="130px" Height="20px" Click="DrawSquareBtn_Click" Grid.Row="0"/>
+                    <Button x:Name="ChangeDrawColorBtn" Content="色選択(未実装)" Width="130px" Height="20px" Click="ChangeDrawColorBtn_Click" Grid.Row="1" />
+                    <Button x:Name="CopyFromCB_Btn" Content="ｸﾘｯﾌﾟﾎﾞｰﾄﾞからｺﾋﾟｰ" Width="130px" Height="20px" Click="CopyFromCB_Btn_Click" Grid.Row="2"/>
+                    <Button x:Name="CopyToCB_Btn" Content="ｸﾘｯﾌﾟﾎﾞｰﾄﾞへ貼付" Width="130px" Height="20px" Click="CopyToCB_Btn_Click" Grid.Row="3"/>
+
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1" Background="Gray">
+                <Image x:Name="EditImage" MouseDown="EditImage_MouseDown" MouseUp="EditImage_MouseUp" MouseMove="EditImage_MouseMove" />
+            </Grid>
+        </Grid>
+        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="335,460,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+
+
+    </Grid>
+</Window>
