@@ -6,10 +6,21 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>4f2bd5115e8e83b119c8e340e576aa01_xxo.ico</ApplicationIcon>
+    <Company />
+    <Authors>MogamiTsuchikawa</Authors>
+    <Version>1.0.1</Version>
+    <PackageIcon>internet_screenshot_computer.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <Content Include="4f2bd5115e8e83b119c8e340e576aa01_xxo.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\Downloads\internet_screenshot_computer.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
